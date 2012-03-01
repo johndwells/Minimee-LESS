@@ -102,10 +102,13 @@ class Minimee_less_ext {
 				$less = new lessc();
 				
 				// guess our server location
-				$importRel = str_ireplace($M->config->base_url, $M->config->base_path, $rel);
+				$local = Minimee_helper::replace_url_with_path($M->config->base_url, $M->config->base_path, $filename);
+				
+				// now fetch directory for our file
+				$p = pathinfo($local);
 				
 				// merge guess with any provided directories, and pass to less
-				$less->importDir = array_merge(array($importRel), explode('|', $lessImportDir));
+				$less->importDir = array_merge(array($p['dirname']), explode('|', $lessImportDir));
 				
 				// return our less'd contents
 				return $less->parse($css);
