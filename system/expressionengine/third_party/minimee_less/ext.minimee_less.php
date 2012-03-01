@@ -17,7 +17,7 @@ require_once PATH_THIRD . 'minimee_less/config.php';
 // ------------------------------------------------------------------------
 
 /**
- * LESS for Minimee Extension
+ * Minimee+LESS Extension
  *
  * @package		ExpressionEngine
  * @subpackage	Addons
@@ -29,11 +29,11 @@ require_once PATH_THIRD . 'minimee_less/config.php';
 class Minimee_less_ext {
 	
 	public $settings 		= array();
-	public $description		= MINIMEE_LESS_NAME;
+	public $name			= MINIMEE_LESS_NAME;
 	public $docs_url		= MINIMEE_LESS_DOCS;
-	public $name			= MINIMEE_LESS_DESC;
+	public $description		= MINIMEE_LESS_DESC;
+	public $version			= MINIMEE_LESS_VER;
 	public $settings_exist	= 'n';
-	public $version			= '1.0.1';
 	
 	private $EE;
 	

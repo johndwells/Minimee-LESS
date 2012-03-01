@@ -15,7 +15,9 @@
 
 Run [lessphp](http://leafo.net/lessphp) on your CSS files, just prior to Minimee running them through Minify.
 
-_Note: Even if you have turned CSS minification off, LESS will still be run._
+This extension is currently quite basic, and barely tested so please use with caution. Its immediate purpose is to demonstrate the extension possibilities with the upcoming release of Minimee 2.x.
+
+_Note: Even if you have turned Minimee's CSS minification off, LESS will still be run._
 
 
 ## Usage
