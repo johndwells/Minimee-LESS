@@ -26,7 +26,7 @@ require_once PATH_THIRD . 'minimee_less/config.php';
  * @link		http://johndwells.com
  */
 
-class Less_for_minimee_ext {
+class Minimee_less_ext {
 	
 	public $settings 		= array();
 	public $description		= MINIMEE_LESS_NAME;
@@ -97,7 +97,7 @@ class Less_for_minimee_ext {
 			{
 				Minimee_helper::log('Running LESS on `' . $filename . '`.', 3);
 	
-				require_once PATH_THIRD . 'less_for_minimee/libraries/lessphp/lessc.inc.php';
+				require_once PATH_THIRD . 'minimee_less/libraries/lessphp/lessc.inc.php';
 				
 				$less = new lessc();
 				
@@ -152,5 +152,5 @@ class Less_for_minimee_ext {
 	// ----------------------------------------------------------------------
 }
 
-/* End of file ext.less_for_minimee.php */
-/* Location: /system/expressionengine/third_party/less_for_minimee/ext.less_for_minimee.php */
+/* End of file ext.minimee_less.php */
+/* Location: /system/expressionengine/third_party/minimee_less/ext.minimee_less.php */
