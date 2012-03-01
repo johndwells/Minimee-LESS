@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+require_once PATH_THIRD . 'minimee_less/config.php';
+
 /**
  * ExpressionEngine - by EllisLab
  *
@@ -27,9 +29,9 @@
 class Less_for_minimee_ext {
 	
 	public $settings 		= array();
-	public $description		= 'LESS for Minimee';
-	public $docs_url		= 'http://johndwells.com/software/less-for-minimee';
-	public $name			= 'LESS for Minimee';
+	public $description		= MINIMEE_LESS_NAME;
+	public $docs_url		= MINIMEE_LESS_DOCS;
+	public $name			= MINIMEE_LESS_DESC;
 	public $settings_exist	= 'n';
 	public $version			= '1.0.1';
 	

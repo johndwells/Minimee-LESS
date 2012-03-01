@@ -1,4 +1,4 @@
-#LESS for Minimee
+#Minimee+LESS
 
 * Author: [John D Wells](http://johndwells.com)
 
@@ -14,6 +14,8 @@
 ## Description
 
 Run [lessphp](http://leafo.net/lessphp) on your CSS files, just prior to Minimee running them through Minify.
+
+_Note: Even if you have turned CSS minification off, LESS will still be run._
 
 
 ## Usage
