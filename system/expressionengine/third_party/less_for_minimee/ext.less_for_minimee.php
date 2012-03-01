@@ -31,7 +31,7 @@ class Less_for_minimee_ext {
 	public $docs_url		= 'http://johndwells.com/software/less-for-minimee';
 	public $name			= 'LESS for Minimee';
 	public $settings_exist	= 'n';
-	public $version			= '1.0.0';
+	public $version			= '1.0.1';
 	
 	private $EE;
 	
@@ -82,21 +82,30 @@ class Less_for_minimee_ext {
 	 * @param 
 	 * @return 
 	 */
-	public function minimee_pre_minify_css($css, $filename, $M)
+	public function minimee_pre_minify_css($css, $filename, $rel, $M)
 	{
 		$less = (preg_match('/0|false|off|no|n/i', $this->EE->TMPL->fetch_param('less'))) ? 'no' : 'yes';
+		$lessImportDir = $this->EE->TMPL->fetch_param('lessImportDir');
 
-		// only run if we want to and file appears to be a LESS file
+		// only run if we say so
 		if ($less == 'yes')
 		{
+			// better be a .less file
 			if (strpos($filename, '.less') !== FALSE)
 			{
 				Minimee_helper::log('Running LESS on `' . $filename . '`.', 3);
 	
 				require_once PATH_THIRD . 'less_for_minimee/libraries/lessphp/lessc.inc.php';
-	
-				$less = new lessc(); // a blank lessc
-	
+				
+				$less = new lessc();
+				
+				// guess our server location
+				$importRel = str_ireplace($M->config->base_url, $M->config->base_path, $rel);
+				
+				// merge guess with any provided directories, and pass to less
+				$less->importDir = array_merge(array($importRel), explode('|', $lessImportDir));
+				
+				// return our less'd contents
 				return $less->parse($css);
 			}
 		}

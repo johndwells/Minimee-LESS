@@ -20,6 +20,8 @@ Run [lessphp](http://leafo.net/lessphp) on your CSS files, just prior to Minimee
 
 Simply add less="yes" to your minimee tags, like so:
 
-	{exp:minimee:css less="yes"}
+	{exp:minimee:css
+		less="yes"
+		lessImportDir="/path/to/less/imports|/path/to/less"}
 	    <link href="/less/styles.less" type="text/css" rel="stylesheet" media="screen" />
 	{/exp:minimee:css}
