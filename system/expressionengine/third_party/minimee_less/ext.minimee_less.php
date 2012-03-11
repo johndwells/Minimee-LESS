@@ -34,6 +34,15 @@ class Minimee_less_ext {
 	private $EE;
 
 	/**
+	 * Logging levels
+	 */
+	protected $_levels = array(
+		1 => 'ERROR',
+		2 => 'DEBUG',
+		3 => 'INFO'
+	);
+
+	/**
 	 * Standard Extension stuff
 	 */
 	public $name			= MINIMEE_LESS_NAME;
@@ -146,7 +155,7 @@ class Minimee_less_ext {
 			// better be a .less file
 			if (strpos($filename, '.less') !== FALSE)
 			{
-				Minimee_helper::log('Running LESS on `' . $filename . '`.', 3);
+				$this->_log('Running LESS on `' . $filename . '`.', 3);
 	
 				require_once PATH_THIRD . 'minimee_less/libraries/lessphp/lessc.inc.php';
 				
@@ -291,7 +300,42 @@ class Minimee_less_ext {
 	}	
 	
 	// ----------------------------------------------------------------------
+
+
+	/**
+	 * Log method
+	 *
+	 * By default will pass message to log_message();
+	 * Also will log to template if rendering a PAGE.
+	 *
+	 * @access  public
+	 * @param   string      $message        The log entry message.
+	 * @param   int         $severity       The log entry 'level'.
+	 * @return  void
+	 */
+	protected function _log($message, $severity = 1)
+	{
+		// translate our severity number into text
+		$severity = (array_key_exists($severity, $this->_levels)) ? $this->_levels[$severity] : $this->_levels[1];
+
+		// basic EE logging
+		log_message($severity, MINIMEE_LESS_NAME . ": {$message}");
+
+		// If not in CP, let's also log to template
+		if (REQ == 'PAGE')
+		{
+			get_instance()->TMPL->log_item(MINIMEE_LESS_NAME . " [{$severity}]: {$message}");
+		}
+
+		// If we are in CP and encounter an error, throw a nasty show_message()
+		if (REQ == 'CP' && $severity == $this->_levels[1])
+		{
+			show_error(MINIMEE_LESS_NAME . " [{$severity}]: {$message}");
+		}
+	}
+	// ------------------------------------------------------
 }
+// END CLASS
 
 /* End of file ext.minimee_less.php */
 /* Location: /system/expressionengine/third_party/minimee_less/ext.minimee_less.php */
