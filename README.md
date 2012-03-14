@@ -20,12 +20,19 @@ This extension is currently quite basic, and barely tested so please use with ca
 _Note: Even if you have turned Minimee's CSS minification off, LESS will still be run._
 
 
+## Installation
+
+Coming soon.
+
+## Configuration
+
+Coming soon.
+
 ## Usage
 
-Simply add less="yes" to your minimee tags, like so:
+There is nothing you will need to do differently to have Minimee+LESS run. Simply use Minimee as normal (you can even mix .less and .css files):
 
 	{exp:minimee:css
-		less="yes"
-		lessImportDir="/path/to/less/imports|/path/to/less"}
+	    <link href="/less/reset.css" type="text/css" rel="stylesheet" media="screen" />
 	    <link href="/less/styles.less" type="text/css" rel="stylesheet" media="screen" />
 	{/exp:minimee:css}
