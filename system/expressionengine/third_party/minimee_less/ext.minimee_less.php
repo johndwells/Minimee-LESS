@@ -161,9 +161,13 @@ class Minimee_less_ext {
 				
 				$less = new lessc();
 				
-				// guess our server location
-				$local = Minimee_helper::replace_url_with_path($M->config->base_url, $M->config->base_path, $filename);
-				
+				// Next 4 lines borrowed from Minimee_helper::replace_url_with()
+				// protocol-agnostic URL
+				$agnostic_url = substr($M->config->base_url, strpos($M->config->base_url, '//') + 2, strlen($M->config->base_url));
+		
+				// pattern search & replace
+				$local = preg_replace('@(https?:)?\/\/' . $agnostic_url . '@', $M->config->base_path, $filename);
+		
 				// now fetch directory for our file
 				$p = pathinfo($local);
 				
