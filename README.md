@@ -19,24 +19,24 @@ _Beta means be wary of using in production environments. Beta also means your fe
 
 Minimee+LESS runs [lessphp](http://leafo.net/lessphp) on your CSS files, just prior to Minimee running them through Minify.
 
-This extension is currently quite basic, and barely tested so please use with caution. Its immediate purpose is to demonstrate the extension possibilities with the upcoming release of Minimee 2.x.
+This is a companion extension to Minimee2+. It is currently quite basic, though early tests have been successful.
 
 _Note: Even if you have turned Minimee's CSS minification off, LESS will still be run._
 
 
 # Installation
 
-Coming soon - but basically, install like any other add-on, and activate the extension.
+Coming soon - but basically, install like any other add-on, and activate the extension, and be sure you have configured Minimee2+ as desired.
 
 
 # Configuration
 
-Coming soon - look at the extension for more.
+Coming soon - please look at the extension for more.
 
 
 # Usage
 
-There is nothing you will need to do differently to have Minimee+LESS run. Simply use Minimee as normal (you can even mix .less and .css files):
+There is nothing you will need to do differently to have Minimee+LESS run. Simply use Minimee as normal (yes, you can even mix .less and .css files!):
 
 	{exp:minimee:css
 	    <link href="/less/reset.css" type="text/css" rel="stylesheet" media="screen" />
